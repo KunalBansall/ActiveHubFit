@@ -7,6 +7,11 @@ import MobileMenu from './MobileMenu';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+// Define the member type
+interface Member {
+  _id: string;
+  name: string;
+}
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
@@ -78,7 +83,7 @@ export default function Header() {
               {searchResults && searchResults.length > 0 && (
                 <div className="absolute mt-1 w-full rounded-md bg-white shadow-lg">
                   <ul className="max-h-60 overflow-auto rounded-md py-1 text-base">
-                    {searchResults.map((member) => (
+                    {searchResults.map((member:Member) => (
                       <li
                         key={member._id}
                         className="cursor-pointer px-4 py-2 hover:bg-gray-100"
