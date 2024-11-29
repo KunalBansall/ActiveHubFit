@@ -10,6 +10,14 @@ const attendanceRoutes = require('./routes/attendance');
 const dashboardRoutes = require('./routes/dashboard');
 
 const app = express();
+// Serve static files from the frontend build
+app.use(express.static(path.join(__dirname, '../frontend/dist')));
+
+// Catch-all handler for serving the index.html from the frontend build
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/dist', 'index.html'));
+});
+
 
 // Connect to MongoDB
 connectDB();
