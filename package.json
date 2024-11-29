@@ -4,7 +4,6 @@
     "version": "1.0.0",
     "scripts": {
       "install": "cd frontend && npm install && cd ../backend && npm install",
-      "build": "npm run build --workspace frontend",
       "start": "concurrently \"cd backend && npm start\" \"cd frontend && npm run preview\"",
       "dev": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm run dev\""
     },
